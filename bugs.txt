@@ -4,5 +4,23 @@ Course.java:
 
 - Line 50 & 55, function getCourseLocation() and getInstructorName(): Fixed problem of wrong return value.
 - Line 34 & 48, function enrollStudent() and dropStudent(): Added if statement to check if add/drop is applicable,
-return false if it's not, and return true if it is.
+  return false if it's not, and return true if it is.
 - Line 100, function isCourseFull(): Changed > to <= for correctly check if course is full.
+
+
+Department.java:
+
+- Line 37, function getNumberOfMajors(): delete the negative sign before return value.
+- Line 46, function getDepartmentChair(): change the return value from string to the real value.
+- Line 62, function addPersonToMajor() --> increaseMajorNumber(): change function name by javadoc comments.
+- Line 69, function dropPersonFromMajor() --> decreaseMajorNumber(): change function name by javadoc comments;
+  add if statement to check if the major number is greater than 0.
+- line 105, function toString(): delete the space after ":" for testing, as the value.toString() already include
+  a "\n" at the beginning.
+
+RouteController.java:
+
+- Line 317: change function reference addPersonToMajor() --> increaseMajorNumber().
+- Line 344: change function reference dropPersonToMajor() --> decreaseMajorNumber().
+
+

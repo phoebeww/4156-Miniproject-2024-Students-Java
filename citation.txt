@@ -1,6 +1,6 @@
- This file contains the links and description of the resource I used for this assignment.
+This file contains the links and description of the resource I used for this assignment.
 
- [1] Google Java Guide: https://google.github.io/styleguide/javaguide.html
- [2] How to write Java doc: https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html
- [3] Unit Testing: https://aws.amazon.com/what-is/unit-testing/
-
+[1] Google Java Guide: https://google.github.io/styleguide/javaguide.html
+[2] How to write Java doc: https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html
+[3] Unit Testing: https://aws.amazon.com/what-is/unit-testing/
+[4] Hashmap in Java: https://www.w3schools.com/java/java_hashmap.asp
