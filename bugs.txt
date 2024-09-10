@@ -1,0 +1,8 @@
+This file contains the bugs I fixed in the project.
+
+Course.java:
+
+- Line 50 & 55, function getCourseLocation() and getInstructorName(): Fixed problem of wrong return value.
+- Line 34 & 48, function enrollStudent() and dropStudent(): Added if statement to check if add/drop is applicable,
+return false if it's not, and return true if it is.
+- Line 100, function isCourseFull(): Changed > to <= for correctly check if course is full.
