@@ -25,6 +25,7 @@ RouteController.java:
 - Line 149 & 152, getMajorCtFromDept(): delete the '-' negative sign before the return number of major;
   change http status Forbidden --> Not Found, to correct.
 - Line 168, 'idDeptChair' --> 'isDeptChair'
+- Line 288, findCourseTime(): change " some time" to requestedCourse.getCourseTimeSlot().
 - Line 317: change function reference addPersonToMajor() --> increaseMajorNumber().
 - Line 344: change function reference dropPersonToMajor() --> decreaseMajorNumber().
 - Line 456, handleException(): change http status OK --> Internal Server Error to match the exception.
