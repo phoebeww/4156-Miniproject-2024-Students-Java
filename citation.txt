@@ -6,3 +6,5 @@ This file contains the links and description of the resource I used for this ass
 [4] Hashmap in Java: https://www.w3schools.com/java/java_hashmap.asp
 [5] Unit test in controller class using mockito:
     https://stackoverflow.com/questions/8894637/how-to-write-unit-test-case-for-controller-class-using-mockito
+[6] How to write unit test on controller MockMvc: https://www.youtube.com/watch?v=M8iml7gF6ZU
+[7] PMD Documentation for clear warning: https://docs.pmd-code.org/latest/#

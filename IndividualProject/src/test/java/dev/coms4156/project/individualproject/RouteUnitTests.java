@@ -4,15 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.HashMap;
-import org.junit.jupiter.api.BeforeAll;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,12 +35,15 @@ public class RouteUnitTests {
   @MockBean
   MyFileDatabase myFileDatabase;
 
+  /**
+   * This function is to set up the data file and mapping used in later tests.
+   */
   @BeforeEach
   public void setUpData() {
     try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("./data.txt"))) {
       Object obj = in.readObject();
       if (obj instanceof HashMap) {
-        HashMap<String, Department> mapping = (HashMap<String, Department>) obj;
+        Map<String, Department> mapping = (HashMap<String, Department>) obj;
         when(myFileDatabase.getDepartmentMapping()).thenReturn(mapping);
       } else {
         throw new IllegalArgumentException("Invalid object type in file.");

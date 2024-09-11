@@ -1,3 +1,2 @@
-# Welcome Students of 4156
+# 4156 Individual Assignment 1
 
-Please follow the assignment specifications on Courseworks when completing this project.
