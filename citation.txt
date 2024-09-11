@@ -4,3 +4,5 @@ This file contains the links and description of the resource I used for this ass
 [2] How to write Java doc: https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html
 [3] Unit Testing: https://aws.amazon.com/what-is/unit-testing/
 [4] Hashmap in Java: https://www.w3schools.com/java/java_hashmap.asp
+[5] Unit test in controller class using mockito:
+    https://stackoverflow.com/questions/8894637/how-to-write-unit-test-case-for-controller-class-using-mockito

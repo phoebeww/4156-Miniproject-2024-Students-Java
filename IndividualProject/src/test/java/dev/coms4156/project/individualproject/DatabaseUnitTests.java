@@ -4,11 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
@@ -27,8 +29,8 @@ public class DatabaseUnitTests {
    * This function sets up a new mapping for test data file, and construct a new MyFileDatabase
    * object to test.
    */
-  @BeforeAll
-  public static void setupDatabaseForTesting() {
+  @BeforeEach
+  public void setupDatabaseForTesting() {
     //set up test files
     String[] times = {"11:40-12:55", "4:10-5:25", "10:10-11:25", "2:40-3:55"};
     String[] locations = {"417 IAB", "309 HAV", "301 URIS"};
@@ -82,7 +84,7 @@ public class DatabaseUnitTests {
   }
 
   @Test
-  public void setMappingTest() {
+  public void mappingTest() {
     // create a new mapping for test
     Course ieor2500 = new Course("Uday Menon", "627 MUDD", "11:40-12:55", 50);
     ieor2500.setEnrolledStudentCount(52);
@@ -99,6 +101,38 @@ public class DatabaseUnitTests {
 
     testDatabase.setMapping(newMap);
     assertEquals(newMap, testDatabase.getDepartmentMapping());
+
+    testDatabase.saveContentsToFile();
+    HashMap<String, Department> deserializedMap = testDatabase.deSerializeObjectFromFile();
+    assertNotNull(deserializedMap);
+    assertEquals(newMap.toString(), deserializedMap.toString());
+  }
+
+  @Test
+  public void toStringTest() {
+    HashMap<String, Department> deserializedMap = testDatabase.deSerializeObjectFromFile();
+    StringBuilder expectedOutput = new StringBuilder();
+    for (String key : deserializedMap.keySet()) {
+      expectedOutput.append("For the ").append(key).append(" department: \n")
+        .append(deserializedMap.get(key).toString());
+    }
+
+    assertEquals(expectedOutput.toString(), testDatabase.toString());
+  }
+
+  /**
+   * This function clears up the test data file used in this test.
+   */
+  @AfterAll
+  public static void deleteDataFile() {
+    File file = new File("./dbtest.txt");
+    if (file.exists()) {
+      if (file.delete()) {
+        System.out.println("File dbtest.txt is successfully deleted.");
+      } else {
+        System.out.println("Failed to delete file dbtest.txt.");
+      }
+    }
   }
 
 
