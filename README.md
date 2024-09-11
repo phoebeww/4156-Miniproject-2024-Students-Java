@@ -1,13 +1,12 @@
-# 4156 Individual Assignment 1: Testing and Bug Fixing
+# 4156 Individual Assignment 1
 
----
-# Test Suite Notes
+## Test Suite Notes
 - A new data test file `dbtest.txt` has been created for the `DatabaseUnitTests` to test some specific functions. This 
 file is automatically cleared once all the tests have been executed, ensuring no residual data is left behind. 
 - The `RouteUnitTests` make use of the provided `data.txt` file for testing purposes. These tests may modify the contents 
 of data.txt during execution. Please run the provided setup command if reset data is needed.
 ---
-# PMD Command Instructions
+## PMD Command Instructions
 If PMD is not installed already, please refer to the official [PMD Website](https://pmd.github.io/).
 
 To run the PMD static bug finder, navigate to the`4156-Miniproject-2024-Students-Java/IndividualProject` 
