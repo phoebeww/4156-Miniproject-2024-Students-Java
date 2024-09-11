@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -106,6 +105,7 @@ public class DatabaseUnitTests {
     testDatabase.saveContentsToFile();
     HashMap<String, Department> deserializedMap = testDatabase.deSerializeObjectFromFile();
     assertNotNull(deserializedMap);
+    assertEquals(newMap.toString(), deserializedMap.toString());
   }
 
   @Test
