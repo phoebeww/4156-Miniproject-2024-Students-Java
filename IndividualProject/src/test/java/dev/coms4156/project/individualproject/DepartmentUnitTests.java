@@ -3,6 +3,7 @@ package dev.coms4156.project.individualproject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.HashMap;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -75,11 +76,11 @@ public class DepartmentUnitTests {
         COMS CS102:
         Instructor: Alicia Mark; Location: H136; Time: 11:10-12:25
         """;
-    assertEquals(expectedOutput, testDept.toString(), "The strings are not equal!");
+    assertEquals(expectedOutput, testDept.toString());
   }
 
   /** The test Department instance used for testing. */
   public static Department testDept;
   public static Department testDept1;
-  public static HashMap<String, Course> classes;
+  public static Map<String, Course> classes;
 }

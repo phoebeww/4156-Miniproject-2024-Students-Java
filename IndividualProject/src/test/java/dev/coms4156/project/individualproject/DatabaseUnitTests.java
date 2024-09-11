@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
+import java.util.Map;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,11 +42,11 @@ public class DatabaseUnitTests {
     Course coms3134 = new Course("Brian Borowski", locations[2], times[1], 250);
     coms3134.setEnrolledStudentCount(242);
 
-    HashMap<String, Course> courses = new HashMap<>();
+    Map<String, Course> courses = new HashMap<>();
     courses.put("1004", coms1004);
     courses.put("3134", coms3134);
     Department compSci = new Department("COMS", courses, "Luca Carloni", 2700);
-    HashMap<String, Department> mapping = new HashMap<>();
+    Map<String, Department> mapping = new HashMap<>();
     mapping.put("COMS", compSci);
 
     //data for econ dept
@@ -71,7 +72,7 @@ public class DatabaseUnitTests {
 
   @Test
   public void deSerializeTest() {
-    HashMap<String, Department> deserializedMap = testDatabase.deSerializeObjectFromFile();
+    Map<String, Department> deserializedMap = testDatabase.deSerializeObjectFromFile();
 
     assertNotNull(deserializedMap);
     assertTrue(deserializedMap.containsKey("COMS"));
@@ -91,26 +92,26 @@ public class DatabaseUnitTests {
     Course ieor3404 = new Course("Christopher J Dolan", "303 MUDD", "10:10-11:25", 73);
     ieor3404.setEnrolledStudentCount(80);
 
-    HashMap<String, Course> courses = new HashMap<>();
+    Map<String, Course> courses = new HashMap<>();
     courses.put("2500", ieor2500);
     courses.put("3404", ieor3404);
 
     Department ieor = new Department("IEOR", courses, "Jay Sethuraman", 67);
-    HashMap<String, Department> newMap = new HashMap<>();
+    Map<String, Department> newMap = new HashMap<>();
     newMap.put("IEOR", ieor);
 
     testDatabase.setMapping(newMap);
     assertEquals(newMap, testDatabase.getDepartmentMapping());
 
     testDatabase.saveContentsToFile();
-    HashMap<String, Department> deserializedMap = testDatabase.deSerializeObjectFromFile();
+    Map<String, Department> deserializedMap = testDatabase.deSerializeObjectFromFile();
     assertNotNull(deserializedMap);
     assertEquals(newMap.toString(), deserializedMap.toString());
   }
 
   @Test
   public void toStringTest() {
-    HashMap<String, Department> deserializedMap = testDatabase.deSerializeObjectFromFile();
+    Map<String, Department> deserializedMap = testDatabase.deSerializeObjectFromFile();
     StringBuilder expectedOutput = new StringBuilder();
     for (String key : deserializedMap.keySet()) {
       expectedOutput.append("For the ").append(key).append(" department: \n")
